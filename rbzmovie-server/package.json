@@ -1,0 +1,23 @@
+{
+  "name": "rbzmovie-server",
+  "version": "1.0.0",
+  "description": "express server for rbz movie db",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feeharh/RBZ-MOVIE-APP.git"
+  },
+  "author": "Rofiat-Bethelihem-Zebib",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/feeharh/RBZ-MOVIE-APP/issues"
+  },
+  "homepage": "https://github.com/feeharh/RBZ-MOVIE-APP#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^4.6.0"
+  }
+}
