@@ -62,10 +62,16 @@
   </tbody>
 </table>
 
+<!-- new comment -->
+<h3 class="text-left text-muted px-3">Comment on {{title}}</h3>
+<hr />
 
-<div class="text-center mb-4 mt-4">
+<div class="px-5 col-6">
 
-  <a mat-stroked-button color="primary" (click)="toggleActors()">Toggle Movie Actors</a>
-</div>
+  <div class="md-form">
+    <textarea type="text" [(ngModel)]="comments" id="form1" class="md-textarea form-control" mdbInput></textarea>
+    <label for="form1" class="">Add Comment</label>
+    <button (click)="post()" mdbBtn color="light" mdbWavesEffect>Send</button>
+  </div>
 
 </div>

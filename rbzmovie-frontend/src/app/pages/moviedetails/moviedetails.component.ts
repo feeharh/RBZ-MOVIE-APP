@@ -26,6 +26,11 @@ export class MoviedetailsComponent implements OnInit {
   favorited: any;
   variable: any;
 
+  post() {
+    this.postComment.push(this.comments);
+    this.comments = '';
+  }
+
   constructor(private getMoviesServies: GetMoviesService, private route: ActivatedRoute, private GetFavoritesServiceService: GetFavoritesServiceService) {
     this.route.queryParams.subscribe(params => {
       this.movieId = params['movieID'];
@@ -86,7 +91,6 @@ export class MoviedetailsComponent implements OnInit {
 
     this.getMoviesServies.getTrailerDetails(this.movieId).subscribe((data3) => {
       this.trailer = `https://www.youtube.com/embed/${data3['videos']['results'][0]['key']}?autoplay=1?controls=1`;
-      console.log('tarilers', this.trailer);
 
     });
   }
