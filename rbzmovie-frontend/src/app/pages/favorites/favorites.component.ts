@@ -20,7 +20,6 @@ export class FavoritesComponent implements OnInit {
 
 
   handleRemove(movieId) {
-    //  when already a
     console.log(movieId)
     this.variable = {
       userFrom: window.localStorage.getItem('userId'),
@@ -60,7 +59,6 @@ export class FavoritesComponent implements OnInit {
 ngOnInit(): void {
     this.uuid = window.localStorage.getItem('userId')
     console.log(this.uuid)
-    // this.fecthMovies(this.uuid)
     const uuid = { uuid: this.uuid }
     this.fecthMovies(uuid)
 

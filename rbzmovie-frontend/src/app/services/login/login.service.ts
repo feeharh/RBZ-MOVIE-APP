@@ -13,8 +13,6 @@ export class LoginService {
   constructor(private httpclient: HttpClient) { }
 
   loginUser(body): Observable<any> {
-    // const model = { email: body.email, password: body.password };
-    // console.log(model);
     return this.httpclient
       .post(this.url + '/login', body, {
         headers: new HttpHeaders({
