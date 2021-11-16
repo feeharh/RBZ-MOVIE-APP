@@ -1,35 +1,39 @@
-//imports
 const express = require('express');
 const helmet = require('helmet');
-require('./data/db')
-const port = 4000;
-const routes = require('./route/route');
-
-//instantiation
+const path = require('path');
+require('dotenv').config()
+const mongoose = require('mongoose')
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+var cors = require('cors')
+//const config = require("./config/key");
+const port = process.env.port || 4600;
 const app = express();
 
-//configurations
-app.set('strict routing', true);
-app.set('case sensitive routing',true);
-app.set('x-powered-by',false);
+var distDir = __dirname + "../rbzmovie-frontend/dist";
+app.use(express.static(distDir));
 
-//Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(cors())
+app.use(express.static(path.join(__dirname, 'dist/evoting-app')));
 app.use(helmet());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cookieParser());
 
-app.use('/api' , routes);
-app.all("*", (req, res, next) => {
-    next(new Error(`No route found`));
+app.use('/api/users', require('./routes/user'));
+app.use('/api/favorites', require('./routes/favorite'));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
 
-//error handler
-app.use(function(err,req,res,next){
-  res.json({
-    msg:err.message
+
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+  app.listen(port, () => {
+    console.log(`app is running on port: ${port}`)
   })
+
+}).catch((err) => {
+  console.log(err)
 })
 
-app.listen(port, ()=>{
-    console.log(`Listening on: ${port}`);
-})

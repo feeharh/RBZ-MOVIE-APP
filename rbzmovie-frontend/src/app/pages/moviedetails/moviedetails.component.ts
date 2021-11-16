@@ -25,11 +25,16 @@ export class MoviedetailsComponent implements OnInit {
   favNumber: number;
   favorited: any;
   variable: any;
+  likes: number = 20;
+  dislikes: number = 12;
 
   post() {
     this.postComment.push(this.comments);
     this.comments = '';
   }
+
+  like(){ this.likes++}
+  dislike(){ this.dislikes--}
 
   constructor(private getMoviesServies: GetMoviesService, private route: ActivatedRoute, private GetFavoritesServiceService: GetFavoritesServiceService) {
     this.route.queryParams.subscribe(params => {
