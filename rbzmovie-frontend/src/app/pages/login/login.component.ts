@@ -32,7 +32,6 @@ export class LoginComponent {
     });
   }
   login() {
-    // this.service.loginUser(this.myForm.value.logindetails);
     this.service.loginUser(this.elegantForm.value).subscribe(
       res => {
         if (res.status === true) {

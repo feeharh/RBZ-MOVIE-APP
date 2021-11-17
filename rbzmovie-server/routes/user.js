@@ -51,8 +51,6 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-    // const { error } = loginValidation(req.body);
-    // if (error) return res.json({ status: false, message: error.details[0].message });
     // //Check if the email exists
     const user = await User.findOne({ email: req.body.elegantFormEmailEx.toLowerCase() });
     if (!user) return res.json({ status: false, message: "Email not found" });
