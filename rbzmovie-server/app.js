@@ -1,11 +1,12 @@
 const express = require('express');
 const helmet = require('helmet');
 const path = require('path');
-require('dotenv').config()
+require('dotenv').config();
 const mongoose = require('mongoose')
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 var cors = require('cors')
+console.log(process.env);
 //const config = require("./config/key");
 const port = process.env.port || 4600;
 const app = express();
