@@ -1,7 +1,6 @@
 .mgl-landing{
   mat-grid-tile{
     cursor: pointer;
-
     img{
       min-width: 100%;
       position: relative;
@@ -9,7 +8,7 @@
 
     p{
       position: absolute;
-      color: #fff;
+      color: rgb(241, 236, 236);
       padding: 40px;
       bottom: 0;
       left: 0;
@@ -22,11 +21,11 @@
     box-shadow: none;
   }
   mdb-card{
-    display: inline-block;
+   display: inline-block;
     width: 25%;
     border: none;
     a{
-      padding: 0px;
+      padding: 20px;
     }
   }
 
